@@ -13,7 +13,7 @@ export default function Contact() {
                 Contact Us
               </h1>
               <p className="text-lg text-primary-50">
-                We're here to help you on your journey to wellness
+                We&apos;re here to help you on your journey to wellness
               </p>
             </div>
 
