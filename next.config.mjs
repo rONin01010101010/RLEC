@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  
+  // Removed 'output: export' for Render deployment
+  // Use next.config.static.mjs for static deployments (GitHub Pages)
+
   images: {
     unoptimized: true,
   },

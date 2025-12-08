@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next build",
     "start": "next start",
     "lint": "next lint",
-    "predeploy": "npm run build",
+    "build:static": "cp next.config.static.mjs next.config.mjs && next build && git checkout next.config.mjs",
+    "predeploy": "npm run build:static",
     "deploy": "gh-pages -d out"
   },
   "dependencies": {
