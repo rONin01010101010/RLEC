@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
-// import Link from "next/link";
+import Footer from "@/components/Footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -12,7 +13,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 md:p-16 mb-12 shadow-2xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Compassionate Care, Modern Medicine.
+               Your Recovery, Our Mission.
               </h1>
               <p className="text-lg md:text-xl text-primary-50 mb-8 max-w-3xl">
                 Providing established healthcare to lead you on your journey to wellness.
@@ -67,28 +68,51 @@ export default function Home() {
             </div>
 
             <div className="prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">A Patient-First Approach</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">What is Radiation Therapy?</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Radiation therapy is one of the main methods of treating cancer. It uses machines called linear accelerators to deliver precise and focused high energy x-rays to damage or kill cancer cells. It is a powerful and well proven tool used in the battle against cancer. It has revolutionized the management of many tumors and improved the outcome of persons suffering malignancy over the past few decades and saved countless from hardship and mortality.
               </p>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What are the Complications That May Arise from Radiation Therapy?</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                As in all therapies - not all outcomes are equally favorable. In a small percentage of those who receive radiotherapy, the tissue response is accentuated and damage to normal tissue occurs. The unpleasant effects usually settle post irradiation, however not in all cases.
               </p>
+
+              <p className="text-lg text-gray-600 mb-4">Problems can manifest in many ways:</p>
+              <ul className="text-lg text-gray-600 mb-4 list-disc pl-8">
+                <li>thinning out "wasting" of tissue</li>
+                <li>fibrotic transformation (elastic tissue becomes tough and leathery)</li>
+                <li>bone fractures (known as insufficiency fractures/or pathological fractures) when bones become weak and break spontaneously or with minor trauma</li>
+                <li>infection - lack of host defences to keep bacteria and other invaders at bay</li>
+                <li>pain - this may result from damage to the nervous tissue as well as chronic inflammation of the supporting tissues - known to occur as a result of the radiotherapy</li>
+                <li>bleeding - spontaneously due to lack of regular repair and maintenance</li>
+              </ul>
+
+              <p className="text-lg text-gray-600 mb-4">
+                The common underlying feature is a loss of the normal ability to perform "housekeeping chores" of tissue repair and maintenance.
+              </p>
+
+              <p className="text-lg text-gray-600 mb-4">
+                The timing of these unwanted biological effects of radiation exposure (Complications) can be divided into 2 groups:
+              </p>
+              <ol className="text-lg text-gray-600 mb-4 list-decimal pl-8">
+                <li>If sustained following treatment the problem is called persistent radiation effects.</li>
+                <li>If the initial inflammation settles and then after 3 months or more, tissue deterioration and loss of function develops, this has been termed radiation late effects.</li>
+              </ol>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What Options are Available for Those Suffering from Radiation Therapy Complications?</h2>
+              <p className="text-lg text-gray-600 mb-4">
+                In 2000 the Adult Radiotherapy Late Effects Clinic was initiated at the Princess Margaret Hospital in Toronto to try and expand the range of options available to those suffering from complications of radiation therapy. Dr. Levin and Dr. Evans were co-founders of this service. That clinic has helped &gt; 1000 patients to date. This experience has enabled the provision of a range of therapeutic options to meet the needs of this population.
+              </p>
+
               <p className="text-lg text-gray-600">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                In 2016, <Link href="https://drwayneevans.ca/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark underline">Dr. Wayne Evans</Link> established the Radiotherapy Late Effects Clinic as a further expansion of the services available to Ontario residents to assist those who have developed complications of radiotherapy. Please view our expanded therapeutic choices.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="bg-gradient-to-r from-primary-dark via-primary to-primary-light text-white py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-primary-50">
-              &copy; {new Date().getFullYear()} Radiation Therapy Late Effects Clinic. All rights reserved.
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </>
   );
