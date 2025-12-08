@@ -80,7 +80,7 @@ export default function Home() {
 
               <p className="text-lg text-gray-600 mb-4">Problems can manifest in many ways:</p>
               <ul className="text-lg text-gray-600 mb-4 list-disc pl-8">
-                <li>thinning out "wasting" of tissue</li>
+                <li>thinning out &quot;wasting&quot; of tissue</li>
                 <li>fibrotic transformation (elastic tissue becomes tough and leathery)</li>
                 <li>bone fractures (known as insufficiency fractures/or pathological fractures) when bones become weak and break spontaneously or with minor trauma</li>
                 <li>infection - lack of host defences to keep bacteria and other invaders at bay</li>
@@ -89,7 +89,7 @@ export default function Home() {
               </ul>
 
               <p className="text-lg text-gray-600 mb-4">
-                The common underlying feature is a loss of the normal ability to perform "housekeeping chores" of tissue repair and maintenance.
+                The common underlying feature is a loss of the normal ability to perform &quot;housekeeping chores&quot; of tissue repair and maintenance.
               </p>
 
               <p className="text-lg text-gray-600 mb-4">
