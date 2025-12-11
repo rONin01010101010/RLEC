@@ -1,119 +1,107 @@
-# Render Deployment Guide
+# Render CI/CD Deployment Guide
 
-## Issue Fixed
+This document explains how to set up continuous deployment for the RLEC website to Render.
 
-The app was configured for static export (`output: 'export'`) which doesn't work with Render's Next.js hosting. The configuration has been updated.
+## Overview
 
-## Configuration Changes
+The project is configured with:
+- **GitHub Actions**: Automated CI/CD pipeline that runs on every push
+- **Render**: Cloud hosting platform with auto-deploy enabled
 
-1. **next.config.mjs** - Removed `output: 'export'` for dynamic Next.js deployment
-2. **render.yaml** - Created Render configuration file
-3. **next.config.static.mjs** - Backup config for static deployments (GitHub Pages, FTP)
+## Automatic Deployment Setup
 
-## How to Deploy on Render
+### 1. Connect GitHub Repository to Render
 
-### Method 1: Using render.yaml (Automatic)
+1. Log in to your [Render Dashboard](https://dashboard.render.com/)
+2. Select your `rlec-website` service
+3. Go to **Settings** → **Build & Deploy**
+4. Under **Git**, ensure:
+   - **Repository**: `rONin01010101010/RLEC` is connected
+   - **Branch**: `master` is selected
+   - **Auto-Deploy**: Should be **enabled** (✓ Yes)
 
-1. Commit and push these changes:
+### 2. Verify Auto-Deploy is Enabled
+
+In your Render service settings:
+- Navigate to **Settings** → **Build & Deploy**
+- Confirm **Auto-Deploy** is set to **Yes**
+- This means Render will automatically deploy when you push to the `master` branch
+
+## How It Works
+
+### GitHub Actions Workflow
+
+When you push code to GitHub:
+
+1. **CI Pipeline Runs** (on every push/PR):
+   - Checks out the code
+   - Installs dependencies
+   - Runs ESLint (linting)
+   - Builds the Next.js application
+   - Verifies build succeeds
+
+2. **Deployment** (only on `master` branch):
+   - Render automatically detects the push
+   - Triggers a new deployment
+   - Runs `npm install && npm run build`
+   - Starts the application with `npm start`
+
+### Workflow File
+
+Location: `.github/workflows/deploy.yml`
+
+## Testing the Setup
+
+1. Make a change to any file
+2. Commit and push to the `master` branch:
    ```bash
    git add .
-   git commit -m "Configure for Render deployment"
+   git commit -m "Test CI/CD deployment"
    git push origin master
    ```
+3. Check the **Actions** tab in GitHub to see the CI pipeline running
+4. Check your Render dashboard to see the automatic deployment
 
-2. In Render dashboard:
-   - Click "New +" → "Web Service"
-   - Connect your GitHub repository: `rONin01010101010/RLEC`
-   - Render will detect the `render.yaml` file automatically
-   - Click "Apply" to deploy
+## Current Configuration
 
-3. Your app will be deployed and accessible at your Render URL
-
-### Method 2: Manual Configuration in Render
-
-If render.yaml doesn't work, configure manually:
-
-1. In Render dashboard, click "New +" → "Web Service"
-
-2. Connect repository: `rONin01010101010/RLEC`
-
-3. Configure settings:
-   - **Name**: `rlec-website` (or your choice)
-   - **Region**: Oregon (or your choice)
-   - **Branch**: `master`
-   - **Root Directory**: `website`
-   - **Runtime**: Node
-   - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm start`
-   - **Plan**: Free
-
-4. Add Environment Variable:
-   - **Key**: `NODE_VERSION`
-   - **Value**: `18.17.0`
-
-5. Click "Create Web Service"
-
-## After Deployment
-
-- Your site will be live at: `https://rlec-website.onrender.com` (or your chosen name)
-- Render will automatically redeploy when you push to master
-- First deployment may take 5-10 minutes
-
-## For Static Deployments (GitHub Pages)
-
-If you want to deploy to GitHub Pages or other static hosts:
-
-```bash
-# Build for static deployment
-npm run build:static
-
-# Deploy to GitHub Pages
-npm run deploy
+### render.yaml
+```yaml
+services:
+  - type: web
+    name: rlec-website
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    branch: master
 ```
+
+### Environment Variables
+- `NODE_VERSION`: 18.17.0
 
 ## Troubleshooting
 
-### Still getting 404 errors?
+### Deployment Not Triggering
 
-1. **Check Render logs**:
-   - Go to your service dashboard
-   - Click "Logs" tab
-   - Look for errors during build or startup
+- Verify Auto-Deploy is enabled in Render settings
+- Ensure you're pushing to the `master` branch
+- Check Render dashboard for any error messages
 
-2. **Common issues**:
-   - Build failed: Check if all dependencies are in package.json
-   - Port issues: Render automatically assigns PORT env variable
-   - Root directory: Make sure "Root Directory" is set to `website` in Render settings
+### Build Failures
 
-3. **Verify build locally**:
-   ```bash
-   npm run build
-   npm start
-   # Visit http://localhost:3000
-   ```
+- Check the GitHub Actions logs in the "Actions" tab
+- Check Render deployment logs in the dashboard
+- Verify all dependencies are in `package.json`
 
-### Routes not working?
+### Manual Deployment
 
-- Next.js dynamic routes should work automatically with `npm start`
-- If using custom server, make sure it handles all routes
-- Check that `trailingSlash: true` in next.config.mjs matches your route structure
+If auto-deploy fails, you can manually deploy:
+1. Go to your Render dashboard
+2. Click **Manual Deploy** → **Deploy latest commit**
 
-### Images not loading?
+---
 
-- Current config has `images.unoptimized: true` which works for both Render and static hosting
-- If you want Next.js image optimization on Render, remove this setting
-
-## Switching Between Deployments
-
-**For Render (dynamic):**
-- Use the current `next.config.mjs`
-- Deploy via git push
-
-**For GitHub Pages (static):**
-- Run `npm run build:static`
-- Run `npm run deploy`
-
-## Support
-
-- Render Docs: https://render.com/docs/deploy-nextjs-app
-- Next.js Deployment: https://nextjs.org/docs/deployment
+**Last Updated**: 2025-12-11

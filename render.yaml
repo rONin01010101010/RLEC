@@ -7,6 +7,8 @@ services:
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /
+    autoDeploy: true
+    branch: master
     envVars:
       - key: NODE_VERSION
         value: 18.17.0
