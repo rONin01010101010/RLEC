@@ -12,12 +12,9 @@ export default function Home() {
         <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary-50 via-secondary-50 to-neutral-warm">
           <div className="max-w-7xl mx-auto">
             <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 md:p-16 mb-12 shadow-2xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-               Your Recovery, Our Mission.
-              </h1>
-              <p className="text-lg md:text-xl text-primary-50 mb-8 max-w-3xl">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 max-w-3xl">
                 Providing established healthcare to lead you on your journey to wellness.
-              </p>
+              </h1>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/assets/Referral-RLEC_8+V0620.pdf"
