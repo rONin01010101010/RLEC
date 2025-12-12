@@ -9,11 +9,18 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18.17.0'
 
 jobs:
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
+
+    outputs:
+      build-status: ${{ steps.build.outcome }}
 
     steps:
       - name: Checkout code
@@ -22,35 +29,94 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.17.0'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run linter
         run: npm run lint
+        continue-on-error: false
 
       - name: Build application
-        run: npm run build
+        id: build
+        run: |
+          npm run build
+          echo "Build completed at $(date)"
 
-      - name: Build status
+      - name: Upload build artifacts
         if: success()
-        run: echo "Build completed successfully!"
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-output
+          path: .next
+          retention-days: 1
+
+      - name: Build summary
+        if: success()
+        run: |
+          echo "### Build Summary :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "- Node.js version: ${{ env.NODE_VERSION }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Build status: ✅ Success" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
 
   deploy:
     name: Deploy to Render
     needs: build-and-test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+    environment:
+      name: production
+      url: https://rlec-website.onrender.com
 
     steps:
+      - name: Deployment started
+        run: |
+          echo "### Deployment Started :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "Starting deployment to Render..." >> $GITHUB_STEP_SUMMARY
+          echo "- Time: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+
       - name: Trigger Render Deploy
+        id: deploy
         run: |
           if [ -n "${{ secrets.RENDER_DEPLOY_HOOK_URL }}" ]; then
-            curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
-            echo "Deployment triggered successfully!"
+            echo "Triggering Render deployment via webhook..."
+            response=$(curl -s -w "\n%{http_code}" -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}")
+            http_code=$(echo "$response" | tail -n1)
+
+            if [ "$http_code" -eq 200 ] || [ "$http_code" -eq 201 ]; then
+              echo "✅ Deployment triggered successfully!"
+              echo "HTTP Status: $http_code"
+            else
+              echo "⚠️ Deployment trigger returned status: $http_code"
+            fi
           else
-            echo "No deploy hook configured. Skipping manual trigger."
-            echo "Render will auto-deploy if connected to this repository."
+            echo "ℹ️ No deploy hook configured."
+            echo "Render will auto-deploy via Git integration."
           fi
+
+      - name: Wait for deployment
+        run: |
+          echo "Waiting for Render to complete deployment..."
+          sleep 30
+
+      - name: Deployment summary
+        if: always()
+        run: |
+          echo "### Deployment Summary :white_check_mark:" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: Triggered" >> $GITHUB_STEP_SUMMARY
+          echo "- Platform: Render" >> $GITHUB_STEP_SUMMARY
+          echo "- Time: $(date)" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check deployment status at: https://dashboard.render.com/" >> $GITHUB_STEP_SUMMARY
