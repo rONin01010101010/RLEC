@@ -13,8 +13,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 md:p-16 mb-12 shadow-2xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-4xl leading-tight">
-                Providing established healthcare to lead you on your journey to wellness.
-              </h1>
+               Providing established healthcare to lead you on your post radiation therapy </h1>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/assets/Referral-RLEC_8+V0620.pdf"
