@@ -53,14 +53,6 @@ jobs:
           npm run build
           echo "Build completed at $(date)"
 
-      - name: Upload build artifacts
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: .next
-          retention-days: 1
-
       - name: Build summary
         if: success()
         run: |
