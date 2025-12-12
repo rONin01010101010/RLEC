@@ -3,6 +3,7 @@ services:
     env: node
     name: RLEC
     repo: https://github.com/rONin01010101010/RLEC
+    rootDir: .
     region: oregon
     plan: free
     branch: master
