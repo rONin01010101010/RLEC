@@ -77,7 +77,7 @@ jobs:
     if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
     environment:
       name: production
-      url: https://rlec.onrender.com/
+      url: https://rlec.ca/
 
     steps:
       - name: Deployment started

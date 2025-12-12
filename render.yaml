@@ -1,7 +1,7 @@
 services:
   - type: web
+    runtime : node
     name: rlec-website
-    env: node
     repo: https://github.com/rONin01010101010/RLEC
     region: oregon
     plan: free
