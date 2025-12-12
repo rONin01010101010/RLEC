@@ -1,3 +1,4 @@
+# Alternative render.yaml for Preview Environments
 services:
   - type: web
     name: rlec-website
@@ -5,7 +6,7 @@ services:
     repo: https://github.com/rONin01010101010/RLEC
     region: oregon
     plan: free
-    branch: master
+    # Note: No branch field - allows preview environments to work
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /
