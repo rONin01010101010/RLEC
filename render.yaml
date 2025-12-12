@@ -1,7 +1,7 @@
 services:
   - type: web
-    runtime : node
-    name: rlec-website
+    env: node
+    name: rlec
     repo: https://github.com/rONin01010101010/RLEC
     region: oregon
     plan: free
@@ -9,7 +9,7 @@ services:
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /
-    autoDeployTrigger: checksPass
+    autoDeployTrigger: commit
     envVars:
       - key: NODE_VERSION
         value: 18.17.0
