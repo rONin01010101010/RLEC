@@ -29,8 +29,8 @@ export default function Contact() {
                   </span>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Email</h3>
-                    <a href="mailto:info@radiotherapylateeffects.com" className="text-lg text-primary hover:text-primary-dark transition-colors">
-                      info@radiotherapylateeffects.com
+                    <a href="mailto:info@rlec.ca" className="text-lg text-primary hover:text-primary-dark transition-colors">
+                      info@rlec.ca
                     </a>
                   </div>
                 </div>
@@ -45,8 +45,8 @@ export default function Contact() {
                   </span>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">Toll Free Tel/Fax</h3>
-                    <a href="tel:8334400202" className="text-lg text-secondary hover:text-secondary-dark transition-colors">
-                      833.440.0202
+                    <a href="tel:18447141132" className="text-lg text-secondary hover:text-secondary-dark transition-colors">
+                      1-844-714-1132
                     </a>
                   </div>
                 </div>
