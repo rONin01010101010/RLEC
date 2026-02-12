@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">About RLEC</h3>
             <p className="text-primary-50 leading-relaxed">
-              The Radiotherapy Late Effects Clinic provides specialized care and treatment options for those who have developed complications from radiation therapy.
+              The Radiotherapy Late Effects Clinic provides specialized care and treatment options for those who have developed complications from radiotherapy.
             </p>
           </div>
 
@@ -103,7 +103,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-primary-light pt-8 text-center">
           <p className="text-primary-50">
-            &copy; {new Date().getFullYear()} Radiation Therapy Late Effects Clinic. All rights reserved.
+            &copy; {new Date().getFullYear()} Radiotherapy Late Effects Clinic. All rights reserved.
           </p>
         </div>
       </div>

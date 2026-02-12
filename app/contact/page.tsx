@@ -82,7 +82,7 @@ export default function Contact() {
                 Get in Touch
               </h2>
               <p className="text-gray-700 mb-4 text-lg leading-relaxed">
-                We are here to help you navigate the challenges of radiation therapy late effects. Whether you have questions about our services or would like to schedule a consultation, please don&apos;t hesitate to reach out.
+                We are here to help you navigate the challenges of radiotherapy late effects. Whether you have questions about our services or would like to schedule a consultation, please don&apos;t hesitate to reach out.
               </p>
               <p className="text-gray-700 text-lg leading-relaxed">
                 Our experienced team is committed to providing compassionate care and personalized treatment options for those who have developed complications from radiotherapy.

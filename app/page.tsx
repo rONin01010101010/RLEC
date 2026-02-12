@@ -13,7 +13,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto">
             <div className="bg-gradient-to-r from-primary to-primary-light rounded-2xl p-12 md:p-16 mb-12 shadow-2xl">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 max-w-4xl leading-tight">
-               Providing established healthcare to lead you on your post radiation therapy </h1>
+               Providing established healthcare to lead you on your post radiotherapy </h1>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="/assets/Referral-RLEC_8+V0620.pdf"
@@ -64,12 +64,12 @@ export default function Home() {
             </div>
 
             <div className="prose max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">What is Radiation Therapy?</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">What is Radiotherapy?</h2>
               <p className="text-lg text-gray-600 mb-4">
-                Radiation therapy is one of the main methods of treating cancer. It uses machines called linear accelerators to deliver precise and focused high energy x-rays to damage or kill cancer cells. It is a powerful and well proven tool used in the battle against cancer. It has revolutionized the management of many tumors and improved the outcome of persons suffering malignancy over the past few decades and saved countless from hardship and mortality.
+                Radiotherapy is one of the main methods of treating cancer. It uses machines called linear accelerators to deliver precise and focused high energy x-rays to damage or kill cancer cells. It is a powerful and well proven tool used in the battle against cancer. It has revolutionized the management of many tumors and improved the outcome of persons suffering malignancy over the past few decades and saved countless from hardship and mortality.
               </p>
 
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What are the Complications That May Arise from Radiation Therapy?</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What are the Complications That May Arise from Radiotherapy?</h2>
               <p className="text-lg text-gray-600 mb-4">
                 As in all therapies - not all outcomes are equally favorable. In a small percentage of those who receive radiotherapy, the tissue response is accentuated and damage to normal tissue occurs. The unpleasant effects usually settle post irradiation, however not in all cases.
               </p>
@@ -96,9 +96,9 @@ export default function Home() {
                 <li>If the initial inflammation settles and then after 3 months or more, tissue deterioration and loss of function develops, this has been termed radiation late effects.</li>
               </ol>
 
-              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What Options are Available for Those Suffering from Radiation Therapy Complications?</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 mt-12">What Options are Available for Those Suffering from Radiotherapy Complications?</h2>
               <p className="text-lg text-gray-600 mb-4">
-                In 2000 the Adult Radiotherapy Late Effects Clinic was initiated at the Princess Margaret Hospital in Toronto to try and expand the range of options available to those suffering from complications of radiation therapy. Dr. Levin and Dr. Evans were co-founders of this service. That clinic has helped &gt; 1000 patients to date. This experience has enabled the provision of a range of therapeutic options to meet the needs of this population.
+                In 2000 the Adult Radiotherapy Late Effects Clinic was initiated at the Princess Margaret Hospital in Toronto to try and expand the range of options available to those suffering from complications of radiotherapy. Dr. Levin and Dr. Evans were co-founders of this service. That clinic has helped &gt; 1000 patients to date. This experience has enabled the provision of a range of therapeutic options to meet the needs of this population.
               </p>
 
               <p className="text-lg text-gray-600">

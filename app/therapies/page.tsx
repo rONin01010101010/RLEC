@@ -22,7 +22,7 @@ export default function Therapies() {
 
             <div className="bg-white rounded-xl shadow-lg p-8 mb-8">
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                In 2000, when <Link href="https://drwayneevans.ca/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark underline">Dr. Wayne Evans</Link> and colleagues began exploring radiation therapy complications in Toronto, the most often used therapy to manage late effects was hyperbaric oxygen therapy owing to its long history as a tool to utilize in avoiding surgical misadventure when a surgical procedure was needed in &quot;high risk tissue&quot;, that is, tissue which had been previously irradiated.
+                In 2000, when <Link href="https://drwayneevans.ca/" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark underline">Dr. Wayne Evans</Link> and colleagues began exploring radiotherapy complications in Toronto, the most often used therapy to manage late effects was hyperbaric oxygen therapy owing to its long history as a tool to utilize in avoiding surgical misadventure when a surgical procedure was needed in &quot;high risk tissue&quot;, that is, tissue which had been previously irradiated.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mb-4 mt-8">The Nature of the Injury</h2>

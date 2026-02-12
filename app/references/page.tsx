@@ -114,7 +114,7 @@ function ReferencesContent() {
       <footer className="bg-gradient-to-r from-primary-dark via-primary to-primary-light text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-primary-50">
-            &copy; {new Date().getFullYear()} Radiation Therapy Late Effects Clinic. All rights reserved.
+            &copy; {new Date().getFullYear()} Radiotherapy Late Effects Clinic. All rights reserved.
           </p>
         </div>
       </footer>
