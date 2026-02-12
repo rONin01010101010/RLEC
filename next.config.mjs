@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Removed 'output: export' for Render deployment
-  // Use next.config.static.mjs for static deployments (GitHub Pages)
+// This config is for STATIC deployments (GitHub Pages, FTP, etc.)
+// Use: NODE_ENV=production node -e "require('fs').copyFileSync('next.config.static.mjs', 'next.config.mjs')" && npm run build
 
+const nextConfig = {
+  output: 'export',
   images: {
     unoptimized: true,
   },
